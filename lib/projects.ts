@@ -1,4 +1,4 @@
-﻿export type Project = {
+export type Project = {
   slug: string;
   title: string;
   summary: string;
@@ -69,19 +69,20 @@ export const projects: Project[] = [
   },
   {
     slug: "devfolio-api",
-    title: "Devfolio API",
-    summary: "API service powering content, project metadata, and messaging integrations.",
+    title: "Fast API",
+    summary: "Core API built from the ground up to ingest, structure, and manage phonetics data from external sources for reliable downstream use",
     description:
-      "A backend API layer designed for scalable portfolio integrations, including project endpoints, contact workflows, and modular service expansion with structured JSON responses.",
-    image: "/Port1.jpg",
-    detailImage: "/Deets1.jpg",
-    technologies: ["Node.js", "Express", "REST APIs", "PostgreSQL", "Supabase"],
+      "A custom-built API developed from the ground up to handle the ingestion, structuring, and lifecycle management of externally provided phonetics data. The system is designed to transform raw datasets into organized, system-ready formats while maintaining consistency and scalability. To streamline access and simplify ongoing data operations, retrieval is integrated with Google Sheets, enabling efficient updates, visibility, and lightweight management without compromising performance or data integrity.",
+    image: "/Port4.jpg",
+    detailImage: "/Deets4.jpg",
+    technologies: ["Python", "FastAPI", "REST APIs", "Google Sheets API", "gspread", "Uvicorn", "JSON"],
     features: [
-      "RESTful endpoints for projects and contact data",
-      "Validation-first request handling",
-      "Modular route and service architecture",
-      "Prepared for auth and role-based expansion"
-    ],
+  "Ingests and structures externally sourced data",
+  "Retrieves and updates data seamlessly via Google Sheets integration",
+  "Validation-first request handling and error management",
+  "Modular API architecture prepared for scaling and future expansions",
+  "Optimized for performance and consistent data delivery"
+],
     liveDemoUrl: "#",
     githubUrl: "#"
   }
@@ -90,3 +91,4 @@ export const projects: Project[] = [
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
+

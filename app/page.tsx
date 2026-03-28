@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -35,7 +35,8 @@ export default function HomePage() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
+    website: ""
   });
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function HomePage() {
 
       setFormStatus("success");
       setFormFeedback("Message sent successfully.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "", website: "" });
     } catch (error) {
       setFormStatus("error");
       setFormFeedback(error instanceof Error ? error.message : "Failed to send. Please try again.");
@@ -324,6 +325,7 @@ export default function HomePage() {
                     src="/Profile2.jpg"
                     alt="Elijah James Cubing about portrait"
                     fill
+                    sizes="(max-width: 1024px) 90vw, 360px"
                     className="rounded-2xl object-cover object-top"
                   />
                 </div>
@@ -431,6 +433,7 @@ export default function HomePage() {
                             src={item.image}
                             alt={item.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                             className="object-cover transition duration-500 group-hover:scale-105"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
@@ -604,6 +607,15 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <input
                     type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(event) => setFormData((prev) => ({ ...prev, website: event.target.value }))}
+                    className="hidden"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="text"
                     required
                     value={formData.name}
                     onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
@@ -656,6 +668,9 @@ export default function HomePage() {
     </>
   );
 }
+
+
+
 
 
 
